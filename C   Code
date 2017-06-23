@@ -1,0 +1,37 @@
+#include <iostream>
+#include <string.h>
+
+using std::cout;
+using std::cin;
+using std::endl;
+
+struct advertising
+{
+	float totalAds;
+	float clickedAds;
+	float adValue;
+};
+
+void AdRevenue(advertising ad)
+{
+	cout << "Total Ads: " << ad.totalAds << "\nClicked Ads: " << ad.clickedAds << "\nAd Value: " << ad.adValue << "\n";
+
+	float percentClickedAds = ((ad.clickedAds / ad.totalAds) * 100);
+	float revenue = (ad.clickedAds * ad.adValue);
+	cout << "percentage of clicked ads: " << percentClickedAds << endl;
+	cout << "Total revenue earned: $" << revenue << endl;
+
+}
+
+int main()
+{
+	advertising adv;
+	cout << "how many ads were run: ";
+	cin >> adv.totalAds;
+	cout << "how many ads were clicked: ";
+	cin >> adv.clickedAds;
+	cout << "what is the value of each ad? (eg: 0.05 = 5 cents): ";
+	cin >> adv.adValue;
+	AdRevenue(adv);
+	return 0;
+}
